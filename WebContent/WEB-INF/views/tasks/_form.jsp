@@ -8,7 +8,7 @@
         </c:forEach>
     </div>
 </c:if>
-<label for="content_msg">やること</label><br />
+<label for="content_msg">ToDo</label><br />
 <input type="text" name="content" id="content_msg" value="${tasks.content}" />
 <br /><br />
 

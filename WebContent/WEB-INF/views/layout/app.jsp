@@ -11,7 +11,7 @@
     <body>
         <div id="wrapper">
             <div id="header">
-                <h1>タスク管理システム</h1>
+                <h1>ToDo管理システム</h1>
             </div>
             <div id="content">
                 ${param.content}

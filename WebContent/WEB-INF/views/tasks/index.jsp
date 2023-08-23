@@ -7,7 +7,7 @@
             <c:out value="${flush}"></c:out>
             </div>
         </c:if>
-        <h2>やること一覧</h2>
+        <h2>ToDo一覧</h2>
         <ul>
             <c:forEach var="tasks" items="${tasks}">
                 <li>

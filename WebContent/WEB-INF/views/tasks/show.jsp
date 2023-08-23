@@ -9,7 +9,7 @@
                 <table>
                     <tbody>
                         <tr>
-                            <th>やること</th>
+                            <th>ToDo</th>
                             <td><c:out value="${tasks.content}" /></td>
                         </tr>
                         <tr>
@@ -22,7 +22,7 @@
                         </tr>
                     </tbody>
                 </table>
-                <p><a href="${pageContext.request.contextPath}/index">一覧に戻る</a></p>
+                <p><a href="${pageContext.request.contextPath}/index">ToDo一覧に戻る</a></p>
                 <p><a href="${pageContext.request.contextPath}/edit?id=${tasks.id}">この内容を編集する</a></p>
             </c:when>
             <c:otherwise>
