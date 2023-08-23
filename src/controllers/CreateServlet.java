@@ -2,20 +2,19 @@ package controllers;
 
 import java.io.IOException;
 import java.sql.Timestamp;
+import java.util.List;
 
 import javax.persistence.EntityManager;
+import javax.servlet.RequestDispatcher;
 import javax.servlet.ServletException;
 import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
-import models.validators.MessageValidator;
-
 import models.Tasks;
+import models.validators.MessageValidator;
 import utils.DBUtil;
-import java.util.List;
-import javax.servlet.RequestDispatcher;
 
 
 /**
@@ -43,6 +42,9 @@ public class CreateServlet extends HttpServlet {
 
             Tasks m = new Tasks();
 
+            String content = request.getParameter("content");
+            m.setContent(content);
+
             Timestamp currentTime = new Timestamp(System.currentTimeMillis());
             m.setCreated_at(currentTime);
             m.setUpdated_at(currentTime);
@@ -58,7 +60,7 @@ public class CreateServlet extends HttpServlet {
                 request.setAttribute("tasks", m);
                 request.setAttribute("errors", errors);
 
-                RequestDispatcher rd = request.getRequestDispatcher("/WEB-INF/views/messages/new.jsp");
+                RequestDispatcher rd = request.getRequestDispatcher("/WEB-INF/views/tasks/new.jsp");
                 rd.forward(request, response);
             } else {
                 // データベースに保存
@@ -70,4 +72,5 @@ public class CreateServlet extends HttpServlet {
             response.sendRedirect(request.getContextPath() + "/index");
         }
     }
+}
 }
