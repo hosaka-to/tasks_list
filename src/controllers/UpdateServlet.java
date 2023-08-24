@@ -42,6 +42,10 @@ public class UpdateServlet extends HttpServlet {
             // 該当のIDのタスク1件のみをデータベースから取得
             Tasks m = em.find(Tasks.class, (Integer)(request.getSession().getAttribute("tasks_id")));
 
+            // フォームの内容をcontentフィールドに上書き
+            String content = request.getParameter("content");
+            m.setContent(content);
+
             Timestamp currentTime = new Timestamp(System.currentTimeMillis());
             m.setUpdated_at(currentTime);       // 更新日時のみ上書き
 
